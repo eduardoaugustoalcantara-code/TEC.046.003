@@ -23,4 +23,4 @@ let totalcompra = 0;
 for (let preco of produtosmap.values()) {
     totalcompra = totalcompra + preço;
 }
-console.log(totalcompra);
+console.log
