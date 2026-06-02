@@ -23,6 +23,14 @@ class personagem {
             return "sem mana ou energia.";
         }
     }
+    boss_atacar(alvo) {
+        if(this.energia >= 100) {
+            alvo.hp -= 15;
+            this.energia = 0;
+        } else {
+            this.energia += 50;
+        }
+    }
 }
 
 class habilidade {
@@ -57,9 +65,25 @@ listaHabilidades.forEach(hab => {
     btn.classList.add("btn", "btn-outline-warning");
     btn.onclick = () => {
         hero.hero_atacar(boss, hab);
+        boss.boss_atacar(hero);
         atualizartela();
     }
 });
 const atualizartela = () => {
-    document.getElementById("hp-boss").value = boss.hp;
+        document.getElementById("hp-boss").value = boss.hp;
+    document.getElementById("mp-hero").value = hero.mana;
+    document.getElementById("en-hero").value = hero.energia;
+    document.getElementById("hp-hero").value = hero.hp;
+    document.getElementById("en-boss").value = boss.energia;
+    if (hero.hp <= 0) {
+ game_over();
+    }    
+}
+async function game_over() {
+    const resposta = await fetch("gameover.html");
+    const htmlContent = await resposta.text();
+    document.getElementById("tela").innerHTML = htmlContent;
+    if (boss.hp <= 0) {
+        game_over();
+    }
 }

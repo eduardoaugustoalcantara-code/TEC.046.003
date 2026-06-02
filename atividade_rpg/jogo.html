@@ -10,14 +10,14 @@
         <div class="card">
             <!-- cabeçalho e título -->
             <div class="card-header text-center">Nome do RPG - criado por joab</div>
-            <div class="card-body" style="background-image: url('assets/backgroundCM.png');">
+            <div class="card-body" id="tela" style="background-image: url('assets/backgroundCM.png');">
                 <div class="row">
                     <div class="col">
                         <ul class="list-group float-end text-center" style="width: 250px">
                             <li id="nome-hero" class="list-group-item"></li>
                             <li id="titulo-hero" class="list-group-item">herói</li>
                             <li class="list-group-item">❤️
-                                <progress value="100" max="100" style="accent-color: red;"></progress>
+                                <progress id="hp-hero" value="100" max="100" style="accent-color: red;"></progress>
                             </li>
                             <li class="list-group-item">🧪
                                 <progress id="mp-hero" value="100" max="100"></progress>
@@ -39,7 +39,7 @@
                                 <progress value="100" max="100"></progress>
                             </li>
                             <li class="list-group-item">⚡
-                                <progress value="100" max="100"style="accent-color: orange;"></progress>
+                                <progress id="en-boss" value="100" max="100"style="accent-color: orange;"></progress>
                             </li>
                             
                         </ul>
